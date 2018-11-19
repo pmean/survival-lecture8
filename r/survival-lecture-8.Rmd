@@ -21,7 +21,7 @@ library(tidyr)
 Read in the leader data set.
 
 ```{r read-leader}
-fn <- "~/survival-models/bin/leader.RData"
+fn <- "../../data/leader.RData"
 load(fn)
 leader <- leader[is.finite(leader$age), ]
 ```
@@ -126,7 +126,7 @@ Take a look at the calculations involved.
 ```{r calculations-km}
 leader_tally <- table(leader$years, leader$lost)
 leader_tally
-fn <- "~/survival-models/data/leader_tally.csv"
+fn <- "../../data/leader_tally.csv"
 write.csv(leader_tally, file=fn, row.names=FALSE)
 ```
 
@@ -258,7 +258,7 @@ binary_mv2 <-
 summary(binary_mv2)
 ```
 
-Computet the Schoenfeld residuals to look for non-proportional hazards.
+Compute the Schoenfeld residuals to look for non-proportional hazards.
 
 ```{r schoenfeld, fig.width=4.5, fig.height=2.5}
 par(mar=c(2.6, 2.6, 0.6, 0.6))
@@ -414,5 +414,5 @@ lines(km4$time, km4$estimate, col="purple", lty="dotted")
 Save everything for possible later re-use.
 
 ```{r save-everything}
-save.image("~/survival-models/bin/survival-lecture-8.RData")
+save.image("../../data/survival-lecture-8.RData")
 ```
